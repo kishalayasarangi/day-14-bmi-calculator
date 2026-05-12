@@ -1,0 +1,253 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app-title { text-align: center; font-size: 2rem; color: #7c3aed; }
+.subtitle { text-align: center; color: #606070; font-size: 0.9rem; margin-top: -12px; }
+
+/* UNIT TOGGLE */
+.unit-toggle {
+  display: flex;
+  background: #0f0f1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.unit-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #606070;
+  padding: 9px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.unit-btn:hover { color: #f0f0f0; }
+.unit-btn.active { background: #7c3aed; color: #fff; }
+
+/* FORM */
+.form-card {
+  background: #0f0f1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group { display: flex; flex-direction: column; gap: 8px; }
+.input-group label { font-size: 0.85rem; color: #a0a0b0; }
+
+.input-row {
+  display: flex;
+  align-items: center;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border 0.3s;
+}
+
+.input-row:focus-within { border-color: #7c3aed; }
+
+.input-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  color: #f0f0f0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.unit-label {
+  padding: 0 14px;
+  color: #606070;
+  font-size: 0.85rem;
+  border-left: 1px solid #2a2a4a;
+  white-space: nowrap;
+}
+
+/* GENDER */
+.gender-btns { display: flex; gap: 10px; }
+
+.gender-btn {
+  flex: 1;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #a0a0b0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.gender-btn:hover { border-color: #7c3aed; color: #fff; }
+.gender-btn.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+
+/* CALC BTN */
+.calc-btn {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 4px;
+}
+
+.calc-btn:hover { background: #6d28d9; }
+
+/* RESULT */
+.result-card {
+  background: #0f0f1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hidden { display: none !important; }
+
+.bmi-display { text-align: center; }
+
+.bmi-value {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #7c3aed;
+  line-height: 1;
+}
+
+.bmi-label {
+  font-size: 1.1rem;
+  color: #a0a0b0;
+  margin-top: 8px;
+}
+
+/* BMI BAR */
+.bmi-bar-wrap { position: relative; padding-bottom: 20px; }
+
+.bmi-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.bmi-segment { flex: 1; }
+.bmi-segment.underweight { background: #3b82f6; }
+.bmi-segment.normal { background: #10b981; }
+.bmi-segment.overweight { background: #f59e0b; }
+.bmi-segment.obese { background: #ef4444; }
+
+.bmi-marker {
+  position: absolute;
+  top: -4px;
+  width: 4px;
+  height: 20px;
+  background: #fff;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: left 0.6s ease;
+  box-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+
+/* RANGES */
+.bmi-ranges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.range-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #a0a0b0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot.underweight { background: #3b82f6; }
+.dot.normal { background: #10b981; }
+.dot.overweight { background: #f59e0b; }
+.dot.obese { background: #ef4444; }
+
+/* HEALTH TIPS */
+.health-tips {
+  background: #1a1a2e;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 0.88rem;
+  color: #a0a0b0;
+  line-height: 1.7;
+}
+
+/* EXTRA STATS */
+.extra-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.extra-stat {
+  background: #1a1a2e;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.extra-stat span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c084fc;
+}
+
+.extra-stat label {
+  font-size: 0.75rem;
+  color: #606070;
+  margin-top: 4px;
+  display: block;
+}
+
+footer {
+  margin-top: 32px;
+  color: #404050;
+  font-size: 0.8rem;
+}
